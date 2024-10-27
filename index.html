@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decent Sampler Preset Tuner</title>
+    <!-- Add Prism CSS and Theme -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #2d2d2d;
+            color: #dcdcdc;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #1e1e1e;
+        }
+        header {
+            background-color: #1e1e1e;
+            text-align: center;
+            padding: 20px;
+            height: auto;
+            position: relative;
+            margin: 0 auto;
+            width: 100%;
+        }
+        header img {
+            height: 50px;
+            display: block;
+            margin: 0 auto;
+        }
+        .header-button {
+            background-color: #1e1e1e;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            display: block;
+            margin: 10px auto;
+        }
+        .header-button:hover {
+            background-color: #777;
+        }
+        .divider {
+            border-top: 1px solid #777;
+            margin: 20px 0;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        pre {
+            background-color: #282c34;
+            border-radius: 6px;
+            padding: 1em;
+            margin: 1em 0;
+            overflow: auto;
+        }
+        code {
+            font-family: 'Consolas', 'Monaco', 'Andale Mono', monospace;
+            color: grey;
+        }
+        a {
+            color: #ffa500; /* Orange color */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #ffcc00; /* Lighter orange on hover */
+            text-decoration: underline;
+        }
+        a:visited {
+            color: #ff8c00; /* Darker orange for visited links */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Image/frank_faruk_logo_white.svg" alt="Frank Faruk Logo">
+        <button class="header-button" onclick="window.location.href='https://frankfaruksampling.site'">FRANK FARUK SAMPLING</button>
+        <hr class="divider" style="width: 100%; margin: 20px 0; border-top: 1px solid #777;">
+    </header>
+
+    <h1>Micro Tuning of Individual Notes</h1>
+
+
+    <h2>Simple Description</h2>
+    <p>The Decent Sampler Preset Tuner is a Python script designed to adjust the tuning for specified musical notes within a Decent Sampler <code>.dspreset</code> file. It allows users to apply individual tuning adjustments to multiple notes, update the background image, and provides flexible file handling through drag-and-drop support or a file selection dialog. The script ensures the original image format is preserved unless a different extension is specified.</p>
+
+    <h2>README</h2>
+    <h3>Overview</h3>
+    <p>The Decent Sampler Preset Tuner is a utility script that allows you to:</p>
+    <ul>
+        <li><strong>Adjust Tuning for Specific Notes:</strong> Specify individual tuning adjustments for multiple musical notes within a Decent Sampler <code>.dspreset</code> file.</li>
+        <li><strong>Update Background Image:</strong> Change the background image used in the preset while preserving the original image format.</li>
+        <li><strong>Flexible File Handling:</strong> Easily select the <code>.dspreset</code> file via drag-and-drop (on supported systems) or through a graphical file selection dialog.</li>
+    </ul>
+
+    <h3>Features</h3>
+    <ul>
+        <li><strong>Individual Note Tuning:</strong> Apply different tuning values to specific notes.</li>
+        <li><strong>Image Format Preservation:</strong> Retain the original image file extension unless a new one is specified.</li>
+        <li><strong>User-Friendly Interface:</strong> Simple prompts guide you through the process.</li>
+        <li><strong>Error Handling:</strong> Provides clear messages for invalid inputs or errors.</li>
+    </ul>
+
+    <h2>Prerequisites</h2>
+    <ul>
+        <li><strong>Python 3.x:</strong> Ensure you have Python 3 installed on your system.</li>
+        <li><strong>tkinter Library:</strong> The script uses tkinter for the file dialog, which is included with most Python installations.</li>
+    </ul>
+
+    <h2>Installation</h2>
+    <ol>
+        <li><strong>Download the Script:</strong> Save the script as <code>decent_sampler_preset_tuner.py</code> on your computer.</li>
+        <li><strong>Verify Dependencies:</strong>
+            <ul>
+                <li><code>tkinter</code>: This library is typically included with Python. If you encounter issues, you may need to install it or run the script in an environment where it's available.</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h2>Usage</h2>
+    <h3>Running the Script</h3>
+    <p>Open a command prompt or terminal window, navigate to the directory containing the script, and run:</p>
+    <pre><code class="language-bash">python decent_sampler_preset_tuner.py</code></pre>
+    <p><strong>Note for Windows Users:</strong> You can drag and drop the <code>.dspreset</code> file onto the script file to launch it with the file pre-selected.</p>
+
+    <h3>Step-by-Step Instructions</h3>
+    <ol>
+        <li><strong>Select the <code>.dspreset</code> File:</strong> If you didn't use drag-and-drop, a file dialog will appear. Navigate to and select your Decent Sampler <code>.dspreset</code> file.</li>
+        <li><strong>Enter the New Background Image Name:</strong>
+            <ul>
+                <li><strong>Prompt:</strong> Enter the new image file name for bgImage (enter 0 to leave unchanged).</li>
+                <li><strong>Options:</strong>
+                    <ul>
+                        <li><strong>Change the Image:</strong> Enter the new image file name (e.g., <code>new_background.png</code>). If you omit the extension, the script uses the original image's extension.</li>
+                        <li><strong>Keep Existing Image:</strong> Enter 0 to leave the background image unchanged.</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><strong>Specify Music Notes and Tuning Adjustments:</strong>
+            <p>Prompt:</p>
+            <pre><code class="language-python">Enter the music notes and tuning adjustments in the format 'Note=TuningValue', separated by commas. For example: G#=-0.51, A#=-0.25, C#=0.1</code></pre>
+            <ul>
+                <li><strong>Input Format:</strong> Enter pairs like <code>Note=TuningValue</code>.</li>
+                <li><strong>Separators:</strong> Separate multiple pairs with commas.</li>
+                <li><strong>Example:</strong> <code>G#=-0.49, A=-0.11, C#=0.05</code></li>
+            </ul>
+        </li>
+        <li><strong>Script Processing:</strong> The script applies the specified tuning adjustments and updates the background image if provided. Progress messages will be displayed in the console.</li>
+        <li><strong>Output:</strong> The updated <code>.dspreset</code> file is saved in the same directory as the original file, with <code>_updated</code> appended to the filename. Example: <code>my_instrument.dspreset</code> becomes <code>my_instrument_updated.dspreset</code>.</li>
+    </ol>
+
+    <h2>Examples</h2>
+    <h3>Example 1: Adjusting Tuning for Multiple Notes</h3>
+    <p><strong>Input:</strong></p>
+    <pre><code class="language-bash">Enter the new image file name for bgImage (enter 0 to leave unchanged): 0</code></pre>
+    <pre><code class="language-bash">Your input: G#=-0.49, A=-0.11</code></pre>
+    <p><strong>Result:</strong></p>
+    <ul>
+        <li>Tuning adjustments are applied to samples containing notes G# and A.</li>
+        <li>Background image remains unchanged.</li>
+    </ul>
+
+    <h3>Example 2: Changing the Background Image and Tuning</h3>
+    <p><strong>Input:</strong></p>
+    <pre><code class="language-bash">Enter the new image file name for bgImage (enter 0 to leave unchanged): new_bg_image</code></pre>
+    <pre><code class="language-bash">Your input: C#=0.1, D#=-0.2</code></pre>
+    <p><strong>Result:</strong></p>
+    <ul>
+        <li>The <code>bgImage</code> attribute is updated to use <code>new_bg_image</code> with the original image's extension.</li>
+        <li>Tuning adjustments are applied to samples containing notes C# and D#.</li>
+    </ul>
+
+    <h2>License</h2>
+    <p>This script is provided "as is" without warranty of any kind. Use it at your own risk. Feel free to modify and adapt it to suit your needs.</p>
+
+    <h2>Contributing</h2>
+    <p>Contributions are welcome! If you have suggestions for improvements or encounter any issues, please feel free to reach out.</p>
+
+    <h2>Acknowledgements</h2>
+    <p>Decent Sampler: Decent Sampler is a free sampler plugin. This script is designed to assist users in customizing their Decent Sampler presets.</p>
+
+<h2>Code</h2>
+    <p>To begin, copy the Python code below. Then, open your chosen code editor (e.g., Sublime Text, Visual Studio Code) and paste the code into a new file. Save the file with a <code>.py</code> extension.</p>
+    
+    <div style="display: flex; align-items: center; justify-content: flex-end; margin-bottom: 10px;"><button onclick="copyToClipboard()" style="background-color: #1e1e1e; color: #fff; border: none; padding: 5px 10px; cursor: pointer;">
+            <img src="https://img.icons8.com/ios-glyphs/30/ffffff/copy.png" alt="Copy Icon" style="width: 20px; height: 20px; vertical-align: middle;">
+        </button>
+    </div>
+
+    <pre><code class="language-python">import xml.etree.ElementTree as ET
+
+    import sys
+import os
+import re
+import tkinter as tk
+from tkinter import filedialog
+
+
+def select_file():
+   # Check if a file path is provided via command-line arguments (for drag-and-drop)
+   if len(sys.argv) > 1:
+       file_path = sys.argv[1]
+   else:
+       # Create a file dialog for the user to select the file
+       root = tk.Tk()
+       root.withdraw()  # Hide the main window
+       file_path = filedialog.askopenfilename(
+           title="Select Decent Sampler .dspreset file",
+           filetypes=[("Decent Sampler Preset", "*.dspreset"), ("XML Files", "*.xml"), ("All Files", "*.*")]
+       )
+   return file_path
+
+
+def update_tuning(input_text, tuning_dict):
+   for note, tuning_value in tuning_dict.items():
+       # Escape any special regex characters in the note
+       note_escaped = re.escape(note)
+      
+       # Build the note pattern using underscores to delimit the note
+       pattern = rf'(<sample[^>]+name="[^"]*?_{note_escaped}(\d+)?_.*?"[^>]*?)(\s*/?>)'
+      
+       # Function to add or update tuning
+       def add_tuning(match):
+           tag_content = match.group(1)
+           closing = match.group(3)
+           if 'tuning="' not in tag_content:
+               # Insert tuning attribute before the closing tag
+               return f'{tag_content} tuning="{tuning_value}"{closing}'
+           else:
+               # Update existing tuning value
+               updated_tag = re.sub(r'tuning="[^"]*"', f'tuning="{tuning_value}"', match.group(0))
+               return updated_tag
+
+
+       # Update the input text for the current note
+       input_text = re.sub(pattern, add_tuning, input_text)
+  
+   return input_text
+
+
+def update_bgImage(input_text, new_image_name):
+   # Regular expression to find bgImage="Images/..." attribute
+   pattern = r'(bgImage="Images/)([^"]*)(")'
+  
+   match = re.search(pattern, input_text)
+   if match:
+       original_image_name = match.group(2)
+       original_extension = os.path.splitext(original_image_name)[1]  # Includes the dot, e.g., '.png'
+   else:
+       original_extension = '.png'  # Default to .png if not found
+
+
+   if new_image_name != '0':
+       # If the user did not specify an extension, use the original extension
+       if not os.path.splitext(new_image_name)[1]:
+           new_image_name += original_extension
+
+
+       # Function to perform replacement
+       def replace_bg_image(match):
+           return f'{match.group(1)}{new_image_name}{match.group(3)}'
+
+
+       # Replace the bgImage attribute value with the new image name
+       updated_text = re.sub(pattern, replace_bg_image, input_text)
+   else:
+       # Do not change the input text
+       updated_text = input_text
+
+
+   return updated_text
+
+
+def main():
+   # Select the file
+   file_path = select_file()
+
+
+   if not file_path:
+       print("No file selected. Exiting.")
+       sys.exit(1)
+
+
+   # Ask for the new image file name
+   new_image_name = input("Enter the new image file name for bgImage (enter 0 to leave unchanged): ").strip()
+
+
+   # Ask for the music notes and their tuning adjustments
+   print("Enter the music notes and tuning adjustments in the format 'Note=TuningValue', separated by commas.")
+   print("For example: G#=-0.51, A#=-0.25, C#=0.1")
+   notes_input = input("Your input: ")
+
+
+   # Parse the input into a dictionary
+   tuning_dict = {}
+   notes_list = [note.strip() for note in notes_input.split(',') if note.strip()]
+   for note_pair in notes_list:
+       if '=' in note_pair:
+           note, tuning = note_pair.split('=')
+           note = note.strip()
+           tuning = tuning.strip()
+           tuning_dict[note] = tuning
+       else:
+           print(f"Invalid format for note '{note_pair}'. Expected format is 'Note=TuningValue'.")
+           sys.exit(1)
+
+
+   try:
+       # Read the content of the file
+       with open(file_path, "r", encoding='utf-8') as file:
+           content = file.read()
+
+
+       # Update the content
+       content = update_tuning(content, tuning_dict)
+       content = update_bgImage(content, new_image_name)
+
+
+       # Save the updated content back to a new file
+       file_dir, file_name = os.path.split(file_path)
+       file_base, file_ext = os.path.splitext(file_name)
+       updated_file_name = f"{file_base}_updated{file_ext}"
+       updated_file_path = os.path.join(file_dir, updated_file_name)
+
+
+       with open(updated_file_path, "w", encoding='utf-8') as file:
+           file.write(content)
+
+
+       print(f"\nTuning updated for notes: {', '.join(tuning_dict.keys())}")
+       if new_image_name != '0':
+           print(f"bgImage updated to: {new_image_name}")
+       else:
+           print("bgImage unchanged.")
+       print(f"Updated file saved as: {updated_file_path}")
+
+
+   except FileNotFoundError:
+       print("File not found. Please check the file path and try again.")
+   except Exception as e:
+       print(f"An error occurred: {e}")
+
+
+if __name__ == '__main__':
+    main()</code></pre>
+
+    <hr class="divider" style="width: 100%; margin: 20px 0; border-top: 1px solid #777;">
+    <footer style="text-align: center; margin: 20px 0; color: #dcdcdc; font-size: 14px;">
+        This website design by ChatGPT / Claude.ai <a href="https://frankfaruksampling.site" target="_blank">Frank Faruk Sampling</a> © Copyright 2024
+    </footer>
+
+    <!-- Add Prism JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script>
+        function copyToClipboard() {
+            const codeBlock = document.querySelector('pre code.language-python');
+            const textArea = document.createElement('textarea');
+            textArea.value = codeBlock.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                alert('Code copied to clipboard!');
+            } catch (err) {
+                console.error('Failed to copy text', err);
+            }
+            document.body.removeChild(textArea);
+        }
+    </script>
+</body>
+</html>
